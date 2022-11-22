@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="cordova-plugin-eghl" version="3.4.4">
+
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+        <engine name="cordova-ios" version=">=4.0.0" />
+    </engines>
+
+    <name>eGHL</name>
+    <author>Nexstream Sdn Bhd</author>
+    <description>Plugin to integrate with eGHL's mobile SDK.</description>
+    <license>Apache 2.0</license>
+    <keywords>eghl,payment,gateway</keywords>
+
+    <js-module src="www/eGHL.js" name="eGHL">
+        <clobbers target="eGHL" />
+    </js-module>
+
+    <platform name="android">
+        <framework src="build-extras-eghl.gradle" custom="true" type="gradleReference" />
+        <framework src="com.android.support:appcompat-v7:25.0.1" />
+        <framework src="com.android.support:design:25.0.1" />
+        <framework src="com.android.support:support-compat:25.0.1" />
+        <config-file target="res/xml/config.xml" parent="/*">
+            <preference name="android-minSdkVersion" value="17" />
+            <feature name="eGHL">
+                <param name="android-package" value="com.eghl.cordovaPlugins.eGHLPay"/>
+            </feature>
+            <access origin="https://test2pay.ghl.com" />
+            <access origin="https://*" /><!-- Bank websites... -->
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.INTERNET" />
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+        </config-file>
+
+        <source-file src="android/eGHLPay.java" target-dir="src/com/eghl/cordovaPlugins" />
+        <source-file src="android/EghlPayment.java" target-dir="src/com/eghl/cordovaPlugins" />
+        <source-file src="android/eghl-sdk-v2.5.7.aar" target-dir="libs" />
+    </platform>
+
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="eGHL">
+                <param name="ios-package" value="EGHL"/>
+            </feature>
+            <access origin="https://test2pay.ghl.com" />
+            <access origin="https://*" />
+        </config-file>
+
+
+        <resource-file src="ios/eghl-sdk/EGHL.bundle" />
+        <source-file src="ios/eghl-sdk/EGHL.framework" target-dir="lib" framework="true"/>
+        <header-file src="ios/EGHL.h" />
+        <source-file src="ios/EGHL.m" />
+        <header-file src="ios/EGHLPayViewController.h" />
+        <source-file src="ios/EGHLPayViewController.m" />
+    </platform>
+
+</plugin>
