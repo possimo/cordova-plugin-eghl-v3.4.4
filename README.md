@@ -7,12 +7,13 @@ Cordova Library for integrating with the eGHL payment gateway's mobile SDK.
 Installation
 ------------
 
-```
-cordova plugin add https://github.com/eGHL/cordova-plugin-eghl.git
-```
-> cordova plugin add cordova-plugin-eghl is deprecated
 
-Refer [here](https://github.com/eGHL/cordova-plugin-eghl/wiki/iOS-V2-Linking-Libraries) on how to link to eGHL v2 SDK
+> change cordova-plugin-eghl version on package.json 
+> then paste "cordova-plugin-eghl": "github:iziezam/cordova-plugin-eghl-v3.4.4"
+
+```
+npm install
+```
 
 Usage
 -----
