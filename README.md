@@ -8,8 +8,8 @@ Installation
 ------------
 
 
-> change cordova-plugin-eghl version on package.json 
-> then paste "cordova-plugin-eghl": "github:iziezam/cordova-plugin-eghl-v3.4.4"
+1) change cordova-plugin-eghl version on package.json 
+2) then paste "cordova-plugin-eghl": "github:iziezam/cordova-plugin-eghl-v3.4.4"
 
 ```
 npm install
